@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input">
+    <button style="background-color:black;color: white;" onclick="add()">Add</button>
+    <ol id="ol">
+        <li>Wake up
+            <button style="background-color: red;color: white;" onclick="deleteitem(event)">Delete</button>
+        </li>
+    </ol>
+    <script>
+        var input=document.getElementById("input")
+        var ol=document.getElementById("ol")
+        function add()
+        {
+            var li=document.createElement("li")
+            li.innerHTML=input.value+"<button style='background-color: red;color: white;' onclick='deleteitem(event)'>Delete</button>"
+            ol.append(li)
+        }
+        function deleteitem(event)
+        {
+            event.target.parentElement.remove()
+        }
+    </script>
+</body>
+</html>

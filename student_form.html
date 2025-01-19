@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        border: 2px solid black;
+        margin-top: 5%;
+    
+    }
+    th,td{
+        border: 1px solid black;
+    
+    }
+</style>
+<body>
+    <center>
+    <table>
+        <tr>
+        <td><label>Name</label></td>
+            <td><input id="name"  type="text"></td>
+        </tr>
+        <tr>
+            <td><label>Age</label></td>
+            <td><input id="age"   type="number"></td>
+        </tr>
+        <tr>
+            <td><label>Gender</label></td>
+            <td><input name="gender" value="Male" type="radio" checked>Male<input name="gender" value="Female"  type="radio" checked>Female</td>
+        </tr>
+        <tr>
+            <td><label>Course</label></td>
+            <td><select id="course">
+                <option>c</option>
+                <option>c++</option>
+                <option>python</option>
+                <option>java</option>
+                <option>java Script</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><label>E-mail</label></td>
+            <td><input id="email"></td>
+        </tr>
+        
+        <tr><td colspan="2"><center><button onclick="save()" style="background-color: aquamarine;width: 100%;">Save</button></center></td></tr>
+    </table>
+    <table >
+        <thead>
+            <tr>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>COURSE</th>
+            <th>GENDER</th>
+            <th>EMAIL</th>
+            <th>ACTION</th></tr>
+        </thead>
+        <tbody id="data">
+            <tr>
+                <td>Sandy</td>
+                <td>19</td>
+                <td>JavaScript</td>
+                <td>Female</td>
+                <td>123@gmail.com</td>
+                <td><button style="background-color:red;color:white" onclick="deleteitem(event)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table></center>
+    <script>
+        var data=document.getElementById("data")
+        function save()
+        {
+            var namee=document.getElementById("name")
+            var age=document.getElementById("age")
+            var gender=document.querySelector("input[name='gender']:checked")
+            var course=document.getElementById("course")
+            var email=document.getElementById("email")
+            var tr = document.createElement('tr');
+            tr.innerHTML = `
+        <td>${namee.value}</td>
+        <td>${age.value}</td>
+        <td>${course.value}</td>
+        <td>${gender.value}</td>
+        <td>${email.value}</td>
+        <td><button style="background-color:red;color:white" onclick="deleteitem(event)">Delete</button></td>`
+        data.append(tr);
+        }
+        function deleteitem(event)
+        {
+        event.target.parentElement.parentElement.remove()
+        }
+    </script>
+</body>
+</html>
